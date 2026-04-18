@@ -39,3 +39,19 @@ Do not delete old entries. This file is append-only.
 - Ran project-kickoff and produced `CONSTRAINTS.md`.
 - Ran scope and produced `MVP-SCOPE.md`.
 - Ran implementation planning and produced `IMPLEMENTATION-PLAN.md`.
+
+## 2026-04-18 — Phase 1: Project scaffold
+
+- Installed Flutter 3.38.0 stable (Dart 3.10.0) into /opt/flutter.
+- Ran `flutter create --platforms=android --org com.mrlinnth --project-name myan_myan_tap .` in project root.
+- `pubspec.yaml`: Dart SDK `>=3.10.0-0 <4.0.0`, added `shared_preferences: ^2.3.0`, removed `cupertino_icons`.
+- `analysis_options.yaml`: strict-casts, strict-inference, strict-raw-types all enabled.
+- `android/app/build.gradle.kts`: compileSdk/targetSdk 35, minSdk 24, ndkVersion `28.0.12433566` (r28), Java 17.
+- `android/app/src/main/AndroidManifest.xml`: label set to "Myan Myan Tap".
+- App icon resized from `docs/myanmyantap-icon.jpg` into all five mipmap density folders using Pillow.
+- `lib/main.dart`: clean `MyanMyanTapApp` entry point routing to `StartScreen`.
+- Stub screens created: `start_screen.dart`, `game_screen.dart`, `game_over_screen.dart`.
+- Stub `ScoreService` created (no SharedPreferences calls yet — Phase 5).
+- `flutter analyze`: no issues.
+- Committed and pushed to branch `claude/prepare-phase-1-7RYOf`.
+- Next: Phase 2 — navigation shell (implement the three screens with placeholder UI and wire navigation).
